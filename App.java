@@ -1,14 +1,14 @@
 public class App {
     public static void main(String[] args){
         Config Calculations = new Config();
-        Calculations.Intro();
-        Calculations.VariableInput();
-        Calculations.ShowVariables();
-        Calculations.ConvertVariables();
+        Calculations.intro();
+        Calculations.variableInput();
+        Calculations.showVariables();
+        Calculations.convertVariables();
 
-        if(Calculations.conv_error == true){
-            Calculations.PartOne();
+        if(Calculations.convError == true){
+            Calculations.partOne();
         }
-        Calculations.Counting();
+        Calculations.counting();
     }
 }
