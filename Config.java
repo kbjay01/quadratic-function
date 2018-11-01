@@ -1,12 +1,12 @@
 import java.util.Scanner;
 public class Config {
 
-    String a_string, b_string, c_string;
-    boolean conv_error = false;
+    String aString, bString, cString;
+    boolean convError = false;
     double a, b, c, delta, x0, x1, x2;
     double roots[] = new double[3];
 
-    void Intro() {
+    void intro() {
         //Just an intro void, which introduces the application
 
         System.out.println("Quadratic equation formula:");
@@ -14,21 +14,21 @@ public class Config {
         System.out.println("If any of variables doesn't exist, set it to 0 \n");
     }
 
-    void VariableInput() {
+    void variableInput() {
         // Getting input from user vars(a,b,c)
 
         Scanner reader = new Scanner(System.in);
         System.out.print("a = ");
-        a_string = reader.next();
+        aString = reader.next();
 
         System.out.print("b = ");
-        b_string = reader.next();
+        bString = reader.next();
 
         System.out.print("c = ");
-        c_string = reader.next();
+        cString = reader.next();
     }
 
-    void ShowVariables() {
+    void showVariables() {
         /*
         Showing user his input and asking him: Is the input correct?
         If the input is correct, he inserts "y", if not "n".
@@ -38,24 +38,24 @@ public class Config {
          */
 
         System.out.println("\nYour input:");
-        System.out.println("a = " + a_string);
-        System.out.println("b = " + b_string);
-        System.out.println("c = " + c_string + "\n");
+        System.out.println("a = " + aString);
+        System.out.println("b = " + bString);
+        System.out.println("c = " + cString + "\n");
         System.out.println("Is data correct? [Y/N]");
         Scanner reader = new Scanner(System.in);
         String check = reader.nextLine();
         check.toLowerCase();
 
         if (!"y".equals(check)) {
-            ShowVariables();
+            showVariables();
         }
-        if (a_string == "0") {
+        if (aString == "0") {
             System.out.println(a);
             System.out.println("This function is linear, not quadratic");
         }
     }
 
-    void ConvertVariables() {
+    void convertVariables() {
         /*
         If the users says that the data that he inputted ic correct, then ConvertVariables() checks if
         those inputs are really numbers, or in other words: Can they be converted into a double variable/
@@ -65,28 +65,28 @@ public class Config {
          */
 
         try {
-            a = Double.parseDouble(a_string);
-            b = Double.parseDouble(b_string);
-            c = Double.parseDouble(c_string);
+            a = Double.parseDouble(aString);
+            b = Double.parseDouble(bString);
+            c = Double.parseDouble(cString);
         } catch (NumberFormatException e) {
             System.err.println("[!]Error. At least one of variables is not a number!");
-            conv_error = true;
+            convError = true;
         }
     }
 
-    void PartOne() {
+    void partOne() {
         /*
         Created in order to do not let the calculations start with variables that are not numbers.
         The thing that this void does is it repeats whole start process from Intro() to ConvertVariables().
          */
 
-        Intro();
-        VariableInput();
-        ShowVariables();
-        ConvertVariables();
+        intro();
+        variableInput();
+        showVariables();
+        convertVariables();
     }
 
-    void Counting() {
+    void counting() {
         /*
         Firstly it calculates the Delta variable, P and Q variables that are standing for coordinates of a summit.
         Secondly it creates variable named Function that just stores the way how does the function looks like.
@@ -96,7 +96,7 @@ public class Config {
         delta = (Math.pow(b, 2) - 4 * a * c);
         double p = -b / (2 * a);
         double q = -delta / (4 * a);
-        String function = a_string + "x^2" + " + " + b_string + "x " + "+ " + c_string;
+        String function = aString + "x^2" + " + " + bString + "x " + "+ " + cString;
         String apex = "A(" + p + ", " + q + ")";
         String range = "";
 
